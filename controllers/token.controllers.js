@@ -33,24 +33,22 @@ exports.create = (req,res) =>{
      exports.getacurTok = (req,res) =>{
            
         var id= "59d76fb239d7af00b4835a9e";
-            Token.findById(id,'-_id tokno',  (err, tok)=> {
+            Token.findById(id,'-_id acno',  (err, tok)=> {
                                        if(err)
                                         res.send(err);
                                         
-                                       res.send(JSON.stringify(tok));
+                                        res.send("{\"tokno\" : "+tok.acno+"}");
              });
              }
 
     exports.updatecurrent = (req,res)=>{
         var id= "59d76fb239d7af00b4835a9e";
-Token.findByIdAndUpdate(id,{ $inc : { 'tokno' : 1 }}, (err, tok) => {
+Token.findByIdAndUpdate(id,{ $inc : { 'acno' : 1 }}, (err, tok) => {
             if (err) {
                 res.status(500).send(err);
-            } else {/*
-               tok.tokno=req.body.tstatus ;
-                   tok.save();*/
-
-                res.json(tok);
+            } else {
+                var temp = tok.acno + 1;
+                res.send("{\"tokno\" : "+temp+"}");
             }
         });
      
