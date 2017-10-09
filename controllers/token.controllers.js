@@ -7,7 +7,7 @@ exports.create = (req,res) =>{
             acno :req.body.acno
         });
         entry.save()
-        .then(() => res.send('Success creating Token '))
+        .then(() => res.send(JSON.stringify(entry)))        
         .catch((err) => console.log(err));
     };
 
