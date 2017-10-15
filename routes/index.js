@@ -14,7 +14,7 @@ router.post('/newtok', function(req, res) {
 
 //Get a token
 router.get('/gettok', function(req, res) {
-  var tokno1 = req.query.tokno;
+  var tokno1 = parseInt(req.query.tokno);
   return TokenCTRL.getaTok(req,res,tokno1);
 });
 
