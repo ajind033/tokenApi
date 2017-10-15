@@ -4,7 +4,7 @@ exports.create = (req,res) =>{
     
         var entry = new Token({
             reason : req.body.reason,
-            acno :req.body.acno
+            acno :parseInt(req.body.acno)
         });
         entry.save()
         .then(() => res.send(JSON.stringify(entry)))        
